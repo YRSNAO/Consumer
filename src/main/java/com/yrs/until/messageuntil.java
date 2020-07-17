@@ -3,10 +3,9 @@ package com.yrs.until;
 import com.yrs.model.drp_mq_log;
 
 /**
- * 收消息的工具类
- * 1、判定是否存在主关键字bill_id\state\remark\reportno
- * 2、判定是否存在主关键字bill_id\state\remark\amt_ss
- * 3、如果不存在以上关键字，则视为异常数据
+ * drp_mq_log生成工具类
+ * 1、无异常时使用getmessagetrue生成
+ * 2、有异常时使用getmessagefalse生成
  */
 public class messageuntil {
     public drp_mq_log getmessagetrue(String string, String bill_id) {
