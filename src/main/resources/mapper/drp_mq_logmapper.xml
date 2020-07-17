@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yrs.mapper.drp_mq_logmapper">
+
+    <insert id="insertlog" parameterType="com.yrs.model.drp_mq_log">
+
+             INSERT INTO PESD.DRP_MQ_LOG
+               (CODE,
+                INT_TYPE,
+                MARK,
+                YYYYMMDD,
+                PK_LIST,
+                INFO,
+                PRO_NAME,
+                SYS_TYPE)
+              VALUES
+                (#{CODE},
+                 #{INT_TYPE},
+                 #{MARK},
+                 #{YYYYMMDD},
+                 #{PK_LIST},
+                 #{INFO},
+                 #{PRO_NAME},
+                 #{SYS_TYPE})
+
+    </insert>
+
+</mapper>

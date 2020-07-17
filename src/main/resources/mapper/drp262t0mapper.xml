@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yrs.mapper.drp262t0mapper">
+
+    <update id="updatestate">
+             UPDATE PESD.DRP262T0  SET STATE=#{state},remark=#{remark},rec_bill_no=#{reportno} WHERE BILL_ID=#{bill_id}
+    </update>
+
+    <update id="updateamt">
+             UPDATE PESD.DRP262T0  SET STATE=#{state},AMT=#{amt} WHERE BILL_ID=#{bill_id}
+    </update>
+
+
+</mapper>
