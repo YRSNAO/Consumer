@@ -11,6 +11,7 @@ import java.sql.Clob;
 
 @Data
 @NoArgsConstructor
+@AllArgsConstructor
 public class drp_mq_log implements Serializable{
     private String CODE;
     private String INT_TYPE;
@@ -20,14 +21,4 @@ public class drp_mq_log implements Serializable{
     private String INFO;
     private String PRO_NAME;
     private String SYS_TYPE;
-    public drp_mq_log(String CODE, String INT_TYPE, String MARK, String YYYYMMDD, String PK_LIST, String INFO, String PRO_NAME, String SYS_TYPE) {
-        this.CODE = CODE;
-        this.INT_TYPE = INT_TYPE;
-        this.MARK = MARK;
-        this.YYYYMMDD = YYYYMMDD;
-        this.PK_LIST = PK_LIST;
-        this.INFO = INFO;
-        this.PRO_NAME = PRO_NAME;
-        this.SYS_TYPE = SYS_TYPE;
-    }
 }

@@ -24,8 +24,8 @@ public class drp262t0serviceimpl implements drp262t0service {
     }
 
     @Override
-    public int updateamt(String bill_id,String state,Integer amt) {
-        int i = drp262t0mapper.updateamt(bill_id,state,amt);
+    public int updateamt(String bill_id,String state,String remark,Integer amt) {
+        int i = drp262t0mapper.updateamt(bill_id,state,remark,amt);
         if (i > 0) {
             return i;
         } else {
