@@ -34,10 +34,12 @@ public class rabbitservice {
             String reportno = object.getString("reportno");
             Integer amt = object.getInteger("amt_ss");
             if (amt != null && amt >= 0) {
-                log.info("*****金额不为0走改：状态、金额 逻辑*****" + bill_id + state + amt);
+                log.info("*****金额不为0走改：金额 逻辑*****" + bill_id + state + amt);
+                //所给state="45",则amt_ss=0:反之则amt_ss="mis所给amt_ss".
+                amt=(state=="45")?0:amt;
                 int i = drp262t0serviceimpl.updateamt(bill_id, state, remark, amt);
                 if (i > 0) {
-                    log.info("*****状态、金额修改完毕*****");
+                    log.info("*****金额修改完毕*****");
                     drp_mq_log getmessagetrue = new messageuntil().getmessagetrue(string, bill_id);
                     int insertlog = drp_mq_logserviceimpl.insertlog(getmessagetrue);
                     if (insertlog > 0) {
@@ -46,7 +48,7 @@ public class rabbitservice {
                         log.info("*****写入日志档失败*****");
                     }
                 } else {
-                    log.info("*****状态、金额修改失败*****");
+                    log.info("*****金额修改失败*****");
                     drp_mq_log getmessagefalse = new messageuntil().getmessagefalse(string, bill_id);
                     int insertlog = drp_mq_logserviceimpl.insertlog(getmessagefalse);
                     if (insertlog > 0) {
@@ -57,6 +59,8 @@ public class rabbitservice {
                 }
             } else {
                 log.info("*****金额为0走改：状态 逻辑*****" + bill_id + state);
+                //所给state=="25",则reportno==null:反之则reportno=="mis所给reportno".
+                reportno=(state=="25")?" ":reportno;
                 int i = drp262t0serviceimpl.updatestate(bill_id, state, remark, reportno);
                 if (i > 0) {
                     log.info("*****状态修改完毕*****");
