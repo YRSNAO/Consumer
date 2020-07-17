@@ -1,6 +1,8 @@
 package com.yrs.comment;
 
-import lombok.Data;
+/**
+ * 测试
+ */
 
 public enum resultcode {
     SUCCESS(true, 200, "成功！"),
