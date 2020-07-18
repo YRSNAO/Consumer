@@ -1,7 +1,7 @@
 package com.yrs.comment;
 
 /**
- * 测试
+ * 返回结果码
  */
 
 public enum resultcode {
