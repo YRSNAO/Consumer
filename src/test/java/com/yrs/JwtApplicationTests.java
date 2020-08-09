@@ -4,9 +4,13 @@ import com.alibaba.fastjson.JSONObject;
 import io.jsonwebtoken.JwtBuilder;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
+import org.apache.tomcat.util.codec.binary.Base64;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import javax.crypto.Mac;
+import javax.crypto.spec.SecretKeySpec;
+import java.net.URLEncoder;
 import java.util.Date;
 
 @SpringBootTest
@@ -14,15 +18,17 @@ class JwtApplicationTests {
 
     @Test
     void contextLoads() {
-        /* String key = "yrs";
-         int exp=3600;
-        JwtBuilder jwtBuilder = Jwts.builder().setId("18080123").setSubject("意如霜").claim("api", "www.baidu.com").setIssuedAt(new Date()).signWith(SignatureAlgorithm.HS256, "yrss");
-        jwtBuilder.setExpiration(new Date(exp));
-        String token = jwtBuilder.compact();
-        System.out.println(token);*/
-        String message = "{\"BILL_ID\":\"4044XW202007160002\",\"remark\":\"已抛转接口-5653808-20200716105748\",\"state\":\"30\",\"reportno\":\"44002020071611000001\"}";
-        JSONObject object = JSONObject.parseObject(message);
-        String bill_id = object.getString("BILL_ID");
-        System.out.println(bill_id);
+        System.out.println("SDFSDFFSDF");
     }
+/*    public static void main(String[] args) throws Exception {
+        Long timestamp = System.currentTimeMillis();
+        String secret = "hfqy";
+
+        String stringToSign = timestamp + "\n" + secret;
+        Mac mac = Mac.getInstance("HmacSHA256");
+        mac.init(new SecretKeySpec(secret.getBytes("UTF-8"), "HmacSHA256"));
+        byte[] signData = mac.doFinal(stringToSign.getBytes("UTF-8"));
+        String sign = URLEncoder.encode(new String(Base64.encodeBase64(signData)),"UTF-8");
+        System.out.println(sign);
+    }*/
 }
